@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<main role="main">
+
+    <div class="container">
+        <h1 class="text-center pt-5">Blog</h1>
+        <br>
+        <br>
+        <h2>Latest Posts</h2>
+        <hr>
+        <div class="row">
+            {% for blog in blogs %}
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-primary">World</strong>
+                        <h3 class="mb-0">{{ blog.title }}</h3>
+                        <div class="mb-1 text-muted">{{ blog.pub_date | date:'Y-m-d H:s' }}</div>
+                        <p class="card-text mb-auto">{{ blog.body | slice:140 }} ... </p>
+                        <a href="{% url 'detay' blog.id %}" class="stretched-link" >Continue reading</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img src="{{ blog.image.url }}" class="bd-placeholder-img" alt="" width="200" height="250" >
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

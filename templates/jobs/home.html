@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Anasayfa | Mustafa Dalğa {% endblock %}
+
+{% block content %}
+    <main role="main">
+    <section class="jumbotron text-center">
+        <div class="container">
+            <h1 class="jumbotron-heading">Hi ,I'm Mustafa.</h1>
+            <p class="lead text-muted">Ben mustafa dalğa.Django ile web uygulama geliştirmeyi seviyorum.Öğrenmeyi bir felsefe olarak edindim!</p>
+            <p>
+                <a href="mailto:mustafadalgaa@gmail.com" class="btn btn-primary my-2">Bana Mail At</a>
+            </p>
+            <img src="{% static 'myphoto.jpg' %}" alt="" width="200" height="300">
+        </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for job in jobs %}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ job.image.url }}" class="card-img-top" width="100%" height="225">
+                        <div class="card-body">
+                            <p class="card-text">{{ job.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
