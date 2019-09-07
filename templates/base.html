@@ -13,6 +13,7 @@
     {% block css %}
         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     {% endblock %}
 </head>
 <body>
@@ -27,7 +28,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="https://apierson.com" target="_blank">My Other Website</a>
+                <a class="nav-item nav-link" href="http://mustafadalga.tech" target="_blank">My Other Website</a>
                 <a class="nav-item nav-link" href="https://github.com/mustafadalga" target="_blank">Github</a>
                 <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
                 <a class="nav-item nav-link" href="{% url 'blog' %}">Blog</a>
@@ -36,16 +37,19 @@
     </nav>
 </header>
 
-{% block content %} {% endblock %}
-
+<div id="page-content">
+    {% block content %} {% endblock %}
+</div>
 
 
 {% block footer %}
-<footer class="text-muted">
-    <div class="container text-center">
-        <p>© CopyRight Mustafa Dalğa {% now 'Y' %}</p>
-    </div>
-</footer>
+    <footer class="bg-dark py-4">
+        <div class="container text-center text-white">
+            <small>Copyright &copy; Portfolyo Website</small>
+        </div>
+    </footer>
+
+
 
 {% endblock %}
 

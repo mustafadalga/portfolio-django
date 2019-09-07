@@ -3,20 +3,37 @@
 
 {% block title %} Anasayfa | Mustafa Dalğa {% endblock %}
 
+
+
 {% block content %}
     <main role="main">
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">Hi ,I'm Mustafa.</h1>
-            <p class="lead text-muted">Ben mustafa dalğa.Django ile web uygulama geliştirmeyi seviyorum.Öğrenmeyi bir felsefe olarak edindim!</p>
-            <p>
-                <a href="mailto:mustafadalgaa@gmail.com" class="btn btn-primary my-2">Bana Mail At</a>
-            </p>
-            <img src="{% static 'myphoto.jpg' %}" alt="" width="200" height="300">
+            <h1 class="jumbotron-heading">Merhaba , Ben Mustafa.</h1>
+            <p class="lead text-muted">Django ile web uygulama geliştirmeyi seviyorum.Öğrenmeyi bir felsefe olarak edindim!</p>
+
+            <h3>İletişim</h3>
+            <div class="row mb-5 mt-3">
+                <div class="col-md-12">
+                   <a href="https://github.com/mustafadalga"  target="_blank"><i class="fa fa-github zoom" style="font-size: 36px"></i></a>
+                   <a href="https://www.linkedin.com/in/mustafadalga/" target="_blank" ><i class="fa fa-linkedin ml-2 zoom" style="font-size: 36px"></i></a>
+                   <a href="https://twitter.com/mustafadalgaa"  target="_blank"><i class="fa fa-twitter ml-2 zoom" style="font-size: 36px"></i></a>
+                   <a href="https://instagram.com/mustafadalgaa"  target="_blank"><i class="fa fa-instagram ml-2 zoom" style="font-size: 36px"></i></a>
+                   <a href="https://instagram.com/dogaklani"  target="_blank"><i class="fa fa-instagram ml-2 zoom" style="font-size: 36px"></i></a>
+                </div>
+
+            </div>
+            <img src="{% static 'img/myphoto.jpg' %}" alt="" width="200" height="300">
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+
+    {% if uyari  %}
+
+        <h1 class="text-center mb-5 mt-5">{{ uyari }}</h1>
+    {% else %}
+        <h1 class="text-center">Çalışmalar </h1>
+            <div class="album py-5">
         <div class="container">
             <div class="row">
                 {% for job in jobs %}
@@ -32,6 +49,10 @@
             </div>
         </div>
     </div>
+
+    {% endif %}
+
+
 </main>
 
 {% endblock %}

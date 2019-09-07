@@ -5,11 +5,19 @@ from .models import Blog
 # Create your views here.
 
 def blogs(request):
-    blogs=Blog.objects.all
-    context={
-        'blogs':blogs
-    }
-    return render(request,'blog/blog.html',context)
+    if Blog.objects.all().count():
+        blogs = Blog.objects.all
+        context = {
+            'blogs': blogs
+        }
+        return render(request, 'blog/blog.html', context)
+    else:
+        context = {
+            'uyari': "Henüz blog yazısı bulunmamaktadır"
+        }
+        return render(request, 'blog/blog.html', context)
+
+
 
 def detay(request,id):
     detay=get_object_or_404(Blog,pk=id)
