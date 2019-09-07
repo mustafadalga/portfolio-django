@@ -11,12 +11,3 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
-
-#create a blog models
-# add the blog app to the settings
-#create a migration
-#migrate
-#add to the admin
-
-a="selam"
-
